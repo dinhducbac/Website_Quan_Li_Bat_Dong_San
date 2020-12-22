@@ -1,8 +1,8 @@
 <?php
-    //Khai báo sử dụng session
-    session_start();
+
+    include('Session.php');
     //Khai báo utf-8 để hiển thị được tiếng việt
-    header('Content-Type: text/html; charset=UTF-8');
+    ///header('Content-Type: text/html; charset=UTF-8');
     //Xử lý đăng nhập
     if (isset($_POST['dangnhap']))
     {
@@ -39,19 +39,18 @@
         }
     
         //Lưu tên đăng nhập
-        $_SESSION['Username'] = $username;
+
         include('Model/AccountModel.php');
         $query = mysqli_query($conn,"SELECT * FROM Account WHERE Username='$username'");
         $row = mysqli_fetch_array($query);
         $account = new AccountModel($row['Username'],$row['Password'],$row['Name'],$row['BirthDay'],$row['Gender'],$row['Address'],$row['PhoneNumber'],$row['Email'],$row['IDGroup']);
         //echo "Xin chào <b>" .$account->Username . "</b>. Bạn đã đăng nhập thành công. <a href=''>Thoát</a>";
-        $_SESSION['username'] = $account->Username;
+        $_SESSION['Username'] = $account->Username;
         if($account->IDGroup == 1){
             header('Location:admin.php');
         }
         else{
             header('Location:index.php');
         }
-       
     }
 ?>

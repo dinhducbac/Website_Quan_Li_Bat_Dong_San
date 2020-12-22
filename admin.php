@@ -1,7 +1,11 @@
+<?php
+  include('Controller/LoginController.php');
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
 
@@ -173,7 +177,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php include('Controller/LoginController.php'); echo ''.$_SESSION['username']; ?></a>
+          <a href="#" class="d-block"><?php echo "Hello user " . $_SESSION['Username']; ?></a>
         </div>
       </div>
 
