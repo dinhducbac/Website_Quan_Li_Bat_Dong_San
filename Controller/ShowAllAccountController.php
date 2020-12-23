@@ -11,7 +11,7 @@
             <td><?php echo $row['BirthDay']?></td>
             <td><?php echo $row['Gender']?></td>
             <td><?php echo $row['Address']?></td>
-            <td> <?php echo $row['PhoneNumber']?></td>
+            <td><?php echo $row['PhoneNumber']?></td>
             <td><?php echo $row['Email']?></td>
             <td><?php echo $row['IDGroup']?></td>
         </tr>

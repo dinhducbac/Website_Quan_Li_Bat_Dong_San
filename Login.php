@@ -11,6 +11,6 @@ Mật khẩu : <input type='password' name='password' />
 <input type='submit' class="button" name="dangnhap" value='Đăng nhập' /> 
 <a href='Register.php' title='Đăng ký'>Đăng ký</a> 
 <?php require 'Controller/LoginController.php';?> 
-<form> 
+</form> 
 </body> 
 </html>

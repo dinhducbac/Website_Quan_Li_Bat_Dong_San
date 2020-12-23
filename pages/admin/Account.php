@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | DataTables</title>
 
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -15,6 +16,27 @@
   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../plugins/jszip/jszip.min.js"></script>
+<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- Page specific script -->
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -851,6 +873,9 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <a class="btn btn-app"><i class="fas fa-edit"></i>Add</a> 
+                <a class="btn btn-app"><i class="fas fa-edit"></i>Edit</a> 
+                <a class="btn btn-app"><i class="fas fa-edit"></i>Delete</a> 
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -889,12 +914,114 @@
           </div>
           <!-- /.col -->
         </div>
+        <div class="row">
+          <div class="col-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Add Account</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              <form   method='POST'> 
+                <div class="form-group">
+                  <label>Tên đăng nhập</label> 
+                  <div class="input-group mb-3"> 
+                      <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Tên đăng nhập</label> 
+                  <div class="input-group mb-3"> 
+                      <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Tên đăng nhập</label> 
+                  <div class="input-group mb-3"> 
+                      <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Tên đăng nhập</label> 
+                  <div class="input-group mb-3"> 
+                      <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Tên đăng nhập</label> 
+                  <div class="input-group mb-3"> 
+                      <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Tên đăng nhập</label> 
+                  <div class="input-group mb-3"> 
+                      <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Tên đăng nhập</label> 
+                  <div class="input-group mb-3"> 
+                      <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Tên đăng nhập</label> 
+                  <div class="input-group mb-3"> 
+                      <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Tên đăng nhập</label> 
+                  <div class="input-group mb-3"> 
+                      <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Username">
+                  </div>
+                </div>
+                  <input type='submit' class="button" name="dangnhap" value='Đăng nhập' /> 
+                  <!--<?php require 'Controller/LoginController.php';?> -->
+              </form> 
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
+  
+      <!-- /.container-fluid -->
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
@@ -912,27 +1039,6 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
-<!-- Page specific script -->
 <script>
   $(function () {
     $("#example1").DataTable({
