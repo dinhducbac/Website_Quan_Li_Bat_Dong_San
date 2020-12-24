@@ -1,3 +1,6 @@
+
+<?php require '../../Controller/AddAccountController.php';?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -873,7 +876,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <a class="btn btn-app"><i class="fas fa-edit"></i>Add</a> 
+                <a class="btn btn-app" href="#addaccount"><i class="fas fa-edit"></i>Add</a> 
                 <a class="btn btn-app"><i class="fas fa-edit"></i>Edit</a> 
                 <a class="btn btn-app"><i class="fas fa-edit"></i>Delete</a> 
                 <table id="example1" class="table table-bordered table-striped">
@@ -914,6 +917,7 @@
           </div>
           <!-- /.col -->
         </div>
+        <section id="addaccount">
         <div class="row">
           <div class="col-4">
             <div class="card">
@@ -924,88 +928,95 @@
               <div class="card-body">
               <form   method='POST'> 
                 <div class="form-group">
-                  <label>Tên đăng nhập</label> 
+                  <label>Username</label> 
                   <div class="input-group mb-3"> 
                       <div class="input-group-prepend">  
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="text" class="form-control" placeholder="Username">
+                      <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Tên đăng nhập</label> 
+                  <label>Password</label> 
                   <div class="input-group mb-3"> 
                       <div class="input-group-prepend">  
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="text" class="form-control" placeholder="Username">
+                      <input type="Password" class="form-control" id="password" name="password" placeholder="Password">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Tên đăng nhập</label> 
+                  <label>Name</label> 
                   <div class="input-group mb-3"> 
                       <div class="input-group-prepend">  
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="text" class="form-control" placeholder="Username">
+                      <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Tên đăng nhập</label> 
+                  <label>Birthday</label> 
                   <div class="input-group mb-3"> 
                       <div class="input-group-prepend">  
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="text" class="form-control" placeholder="Username">
+                        <input type="date" id="birthday" name="birthday" class="form-control"
+                          value = "<?php echo date("Y-m-d");?>",
+                          min="1900-01-01" max="<?php echo date("Y-m-d");?>"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Gender</label> 
+                  <div class="input-group mb-3"> 
+                      <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <select id="gender" class="form-control" name="gender">
+                        <option value="M">Nam</option>
+                        <option value="F">Nữ</option>
+                      </select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Tên đăng nhập</label> 
+                  <label>Address</label> 
                   <div class="input-group mb-3"> 
                       <div class="input-group-prepend">  
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="text" class="form-control" placeholder="Username">
+                      <input type="text" class="form-control" id="address" name="address" placeholder="Address">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Tên đăng nhập</label> 
+                  <label>PhoneNumber</label> 
                   <div class="input-group mb-3"> 
                       <div class="input-group-prepend">  
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="text" class="form-control" placeholder="Username">
+                      <input type="text" class="form-control"  id="phonenumber" name="phonenumber" placeholder="PhoneNumber">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Tên đăng nhập</label> 
+                  <label>Email</label> 
                   <div class="input-group mb-3"> 
                       <div class="input-group-prepend">  
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="text" class="form-control" placeholder="Username">
+                      <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Tên đăng nhập</label> 
+                  <label>IDGroup</label> 
                   <div class="input-group mb-3"> 
                       <div class="input-group-prepend">  
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="text" class="form-control" placeholder="Username">
+                      <select id="idgroup" class="form-control" name="idgroup">
+                        <option value="1">Admin</option>
+                        <option value="2">User</option>
+                      </select>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label>Tên đăng nhập</label> 
-                  <div class="input-group mb-3"> 
-                      <div class="input-group-prepend">  
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="Username">
-                  </div>
-                </div>
-                  <input type='submit' class="button" name="dangnhap" value='Đăng nhập' /> 
-                  <!--<?php require 'Controller/LoginController.php';?> -->
+                  <input type='submit' class="button" name="addaccount" value='ADD' /> 
               </form> 
               </div>
               <!-- /.card-body -->
@@ -1014,6 +1025,7 @@
           </div>
           <!-- /.col -->
         </div>
+        </section>
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->

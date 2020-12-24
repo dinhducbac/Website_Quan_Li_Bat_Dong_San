@@ -2,7 +2,7 @@
 
     include('Session.php');
     //Khai báo utf-8 để hiển thị được tiếng việt
-    ///header('Content-Type: text/html; charset=UTF-8');
+    header('Content-Type: text/html; charset=UTF-8');
     //Xử lý đăng nhập
     if (isset($_POST['dangnhap']))
     {
@@ -48,9 +48,11 @@
         $_SESSION['Username'] = $account->Username;
         if($account->IDGroup == 1){
             header('Location:admin.php');
+            die();
         }
         else{
             header('Location:index.php');
+            die();
         }
     }
 ?>
