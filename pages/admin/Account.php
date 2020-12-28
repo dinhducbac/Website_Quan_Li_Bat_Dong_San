@@ -1,5 +1,5 @@
 
-<?php require '../../Controller/AddAccountController.php';?> 
+<?php require '../../Controller/AccountManager.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +29,7 @@
 <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<!-- <script src="../../plugins/datatable-click/datatableClick.js"></script> -->
 <script src="../../plugins/jszip/jszip.min.js"></script>
 <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
 <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
@@ -877,8 +878,8 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <a class="btn btn-app" href="#addaccount"><i class="fas fa-edit"></i>Add</a> 
-                <a class="btn btn-app"><i class="fas fa-edit"></i>Edit</a> 
-                <a class="btn btn-app"><i class="fas fa-edit"></i>Delete</a> 
+                <a class="btn btn-app" href="#editaccount"><i class="fas fa-edit"></i>Edit</a> 
+                <a class="btn btn-app" href="#deleteaccount"><i class="fas fa-edit"></i>Delete</a> 
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -917,115 +918,252 @@
           </div>
           <!-- /.col -->
         </div>
-        <section id="addaccount">
         <div class="row">
-          <div class="col-4">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Add Account</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-              <form   method='POST'> 
-                <div class="form-group">
-                  <label>Username</label> 
-                  <div class="input-group mb-3"> 
-                      <div class="input-group-prepend">  
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                      </div>
-                      <input type="text" class="form-control" id="username" name="username" placeholder="Username">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Password</label> 
-                  <div class="input-group mb-3"> 
-                      <div class="input-group-prepend">  
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                      </div>
-                      <input type="Password" class="form-control" id="password" name="password" placeholder="Password">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Name</label> 
-                  <div class="input-group mb-3"> 
-                      <div class="input-group-prepend">  
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                      </div>
-                      <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Birthday</label> 
-                  <div class="input-group mb-3"> 
-                      <div class="input-group-prepend">  
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                      </div>
-                        <input type="date" id="birthday" name="birthday" class="form-control"
-                          value = "<?php echo date("Y-m-d");?>",
-                          min="1900-01-01" max="<?php echo date("Y-m-d");?>"/>
+          <div class="col-12">
+            <section id="addaccount">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">Add Account</h3>
                     </div>
-                </div>
-                <div class="form-group">
-                  <label>Gender</label> 
-                  <div class="input-group mb-3"> 
-                      <div class="input-group-prepend">  
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                    <form   method='POST'> 
+                      <div class="form-group">
+                        <label>Username</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                        </div>
                       </div>
-                      <select id="gender" class="form-control" name="gender">
-                        <option value="M">Nam</option>
-                        <option value="F">Nữ</option>
-                      </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Address</label> 
-                  <div class="input-group mb-3"> 
-                      <div class="input-group-prepend">  
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      <div class="form-group">
+                        <label>Password</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="Password" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
                       </div>
-                      <input type="text" class="form-control" id="address" name="address" placeholder="Address">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>PhoneNumber</label> 
-                  <div class="input-group mb-3"> 
-                      <div class="input-group-prepend">  
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      <div class="form-group">
+                        <label>Name</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                        </div>
                       </div>
-                      <input type="text" class="form-control"  id="phonenumber" name="phonenumber" placeholder="PhoneNumber">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Email</label> 
-                  <div class="input-group mb-3"> 
-                      <div class="input-group-prepend">  
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      <div class="form-group">
+                        <label>Birthday</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                              <input type="date" id="birthday" name="birthday" class="form-control"
+                                value = "<?php echo date("Y-m-d");?>",
+                                min="1900-01-01" max="<?php echo date("Y-m-d");?>"/>
+                          </div>
                       </div>
-                      <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>IDGroup</label> 
-                  <div class="input-group mb-3"> 
-                      <div class="input-group-prepend">  
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      <div class="form-group">
+                        <label>Gender</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <select id="gender" class="form-control" name="gender">
+                              <option value="M">Nam</option>
+                              <option value="F">Nữ</option>
+                            </select>
+                        </div>
                       </div>
-                      <select id="idgroup" class="form-control" name="idgroup">
-                        <option value="1">Admin</option>
-                        <option value="2">User</option>
-                      </select>
+                      <div class="form-group">
+                        <label>Address</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>PhoneNumber</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control"  id="phonenumber" name="phonenumber" placeholder="PhoneNumber">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Email</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>IDGroup</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <select id="idgroup" class="form-control" name="idgroup">
+                              <option value="1">Admin</option>
+                              <option value="2">User</option>
+                            </select>
+                        </div>
+                      </div>
+                        <input type='submit' class="button" name="addaccount" value='ADD' /> 
+                    </form> 
+                    </div>
+                    <!-- /.card-body -->
                   </div>
+                  <!-- /.card -->
                 </div>
-                  <input type='submit' class="button" name="addaccount" value='ADD' /> 
-              </form> 
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        </section>
+                <!-- /.col -->
+              </section>
+                <section id="editaccount">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Edit Account</h3>
+                      </div>
+                      <!-- /.card-header -->
+                      <div class="card-body">
+                      <form   method='POST'> 
+                        <div class="form-group">
+                          <label>Username</label> 
+                          <div class="input-group mb-3"> 
+                              <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                              </div>
+                              <input type="text" class="form-control" id="editusername" name="editusername" placeholder="Username" >
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Password</label> 
+                          <div class="input-group mb-3"> 
+                              <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                              </div>
+                              <input type="Password" class="form-control" id="editpassword" name="editpassword" placeholder="Password">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Name</label> 
+                          <div class="input-group mb-3"> 
+                              <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                              </div>
+                              <input type="text" class="form-control" id="editname" name="editname" placeholder="Name">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Birthday</label> 
+                          <div class="input-group mb-3"> 
+                              <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                              </div>
+                                <input type="date" id="editbirthday" name="editbirthday" class="form-control"
+                                  value = "<?php echo date("Y-m-d");?>",
+                                  min="1900-01-01" max="<?php echo date("Y-m-d");?>"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Gender</label> 
+                          <div class="input-group mb-3"> 
+                              <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                              </div>
+                              <select id="editgender" class="form-control" name="editgender">
+                                <option value="M">Nam</option>
+                                <option value="F">Nữ</option>
+                              </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Address</label> 
+                          <div class="input-group mb-3"> 
+                              <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                              </div>
+                              <input type="text" class="form-control" id="editaddress" name="editaddress" placeholder="Address">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>PhoneNumber</label> 
+                          <div class="input-group mb-3"> 
+                              <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                              </div>
+                              <input type="text" class="form-control"  id="editphonenumber" name="editphonenumber" placeholder="PhoneNumber">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Email</label> 
+                          <div class="input-group mb-3"> 
+                              <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                              </div>
+                              <input type="text" class="form-control" id="editemail" name="editemail" placeholder="Email">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>IDGroup</label> 
+                          <div class="input-group mb-3"> 
+                              <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                              </div>
+                              <select id="editidgroup" class="form-control" name="editidgroup">
+                                <option value="1">Admin</option>
+                                <option value="2">User</option>
+                              </select>
+                          </div>
+                        </div>
+                          <input type='submit' class="button" name="editaccount" value='Edit' /> 
+                      </form> 
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                  </div>
+                <!-- /.col -->
+              </section>
+              <section id="deleteaccount">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Delete Account</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                          <form   method='POST'> 
+                            <div class="form-group">
+                              <label>Username</label> 
+                              <div class="input-group mb-3"> 
+                                  <div class="input-group-prepend">  
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                  </div>
+                                  <input type="text" class="form-control" id="deleteusername" name="deleteusername" placeholder="Username">
+                              </div>
+                            </div>
+                      
+                              <input type='submit' class="button" name="deleteaccount" value='delete' /> 
+                          </form> 
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                  </div>
+                <!-- /.col -->
+              </section>
+            </div>     
+        </div><!--xoa tai day-->
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
@@ -1057,14 +1195,32 @@
       "responsive": true, "lengthChange": false, "autoWidth": true,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
+    // $('#example2').DataTable({
+    //   "paging": true,
+    //   "lengthChange": false,
+    //   "searching": false,
+    //   "ordering": true,
+    //   "info": true,
+    //   "autoWidth": false,
+    //   "responsive": true,
+    // });
+    $(document).ready(function() {
+      var table = $('#example1').DataTable();
+      
+      $('#example1 tbody').on('click', 'tr', function () {
+          var data = table.row( this ).data();
+          alert( 'You clicked on '+data[0]+'\'s row' );
+          $("#editusername").val(data[0]);
+          $("#deleteusername").val(data[0]);
+          $("#editpassword").val(data[1]);
+          $("#editname").val(data[2]);
+          $("#editbirthday").val(data[3]);
+          $("#editgender").val(data[4]);
+          $("#editaddress").val(data[5]);
+          $("#editphonenumber").val(data[6]);
+          $("#editemail").val(data[7]);
+          $("#editidgroup").val(data[8]);
+      });
     });
   });
 </script>
