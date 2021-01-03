@@ -74,4 +74,15 @@
         // }        
          //header("Refresh:0");
     }
+    if(isset($_POST['deleteaccount'])){
+        $username = addslashes($_POST['deleteusername']);
+        $query = "DELETE FROM Account WHERE Username = '".$username."'";
+        $result = mysqli_query($conn,$query);
+        if($result){
+            echo "Xóa thành công";
+        }
+        else{
+            echo "Xóa không thành công";
+        }
+    }
 ?>

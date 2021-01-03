@@ -15,4 +15,4 @@
             <td><?php echo $row['Email']?></td>
             <td><?php echo $row['IDGroup']?></td>
         </tr>
-      <?php } ?>
+<?php } ?>
