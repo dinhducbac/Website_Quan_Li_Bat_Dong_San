@@ -3,6 +3,8 @@
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <link rel="stylesheet" href="style.css"/> 
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </head> 
 <body> 
 <form action='Register.php' class="register" method='POST'> 

@@ -225,6 +225,12 @@
                   <p>Quản lý nhóm BDS</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="./pages/admin/Catetory.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Quản lý BDS</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">

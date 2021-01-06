@@ -7,5 +7,11 @@
             $this->GroupCateID = $GroupCateID;
             $this->GroupCateName = $GroupCateName;
         }
+        public function GetGroupCateJson(){
+            return [
+                "GroupCateID" => $this->GroupCateID,
+                "GroupCateName" => $this->GroupCateName
+            ];
+        }
     }
 ?>

@@ -36,6 +36,8 @@
 <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -888,7 +890,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                    <?php include('../../Controller/ShowAllGroupCateController.php');?>
+                  
                   </tbody>
                   <tfoot>
                   <tr>
@@ -1022,35 +1024,8 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery -->
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": true,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    // $('#example2').DataTable({
-    //   "paging": true,
-    //   "lengthChange": false,
-    //   "searching": false,
-    //   "ordering": true,
-    //   "info": true,
-    //   "autoWidth": false,
-    //   "responsive": true,
-    // });
-    $(document).ready(function() {
-      var table = $('#example1').DataTable();
-      
-      $('#example1 tbody').on('click', 'tr', function () {
-          var data = table.row( this ).data();
-          alert( 'You clicked on '+data[1]+'\'s row' );
-          $("#EditGroupCateName").val(data[1]);
-          $("#EditGroupCateID").val(data[0]);
-          $("#DeleteGroupCateName").val(data[1]);
-      });
-    });
-  });
-</script>
+<script src="../../Assets/JS/GroupCateData.js"></script>
+
 </body>
 </html>
