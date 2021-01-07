@@ -20,5 +20,18 @@
             $this->Email = $Email;
             $this->IDGroup = $IDGroup;
         }
+        public function GetAccountJson(){
+            return [
+                "Username" => $this->Username,
+                "Password" => $this->Password,
+                "Name" => $this->Name,
+                "BirthDay" => $this->Birthday,
+                "Gender" => $this->Gender,
+                "Address" => $this->Address,
+                "PhoneNumber" => $this->PhoneNumber,
+                "Email" => $this->Email,
+                "IDGroup" => $this->IDGroup
+            ];
+        }
     }
 ?>

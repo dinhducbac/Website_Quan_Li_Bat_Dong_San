@@ -1,18 +1,18 @@
 <?php
       
-      include('../../Connect.php');
+      include('../Connect.php');
       $query = mysqli_query($conn,"SELECT * FROM Account");
       $sl = mysqli_num_rows($query);
-      while($row = mysqli_fetch_array($query)){?>
-        <tr>
-            <td><?php echo $row['Username']?></td>
-            <td><?php echo $row['Password']?></td>
-            <td><?php echo $row['Name']?></td>
-            <td><?php echo $row['BirthDay']?></td>
-            <td><?php echo $row['Gender']?></td>
-            <td><?php echo $row['Address']?></td>
-            <td><?php echo $row['PhoneNumber']?></td>
-            <td><?php echo $row['Email']?></td>
-            <td><?php echo $row['IDGroup']?></td>
-        </tr>
-<?php } ?>
+      $array = array();
+      include('../Model/AccountModel.php');
+      while($row = mysqli_fetch_array($query)){
+          $account = new AccountModel($row['Username'],$row['Password'],$row['Name'],$row['BirthDay'],$row['Gender'],
+          $row['Address'],$row['PhoneNumber'],$row['Email'],$row['IDGroup']);
+          $rowjson = $account->GetAccountJson();
+          array_push($array,$rowjson);
+      }
+      $arr = array();
+      $arr["data"] = $array;
+      echo json_encode($arr);
+?>
+        

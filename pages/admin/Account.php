@@ -880,7 +880,7 @@
                 <a class="btn btn-app" href="#addaccount"><i class="fas fa-edit"></i>Add</a> 
                 <a class="btn btn-app" href="#editaccount"><i class="fas fa-edit"></i>Edit</a> 
                 <a class="btn btn-app" href="#deleteaccount"><i class="fas fa-edit"></i>Delete</a> 
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example2" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>Username</th>
@@ -895,7 +895,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                    <?php include('../../Controller/ShowAllAccountController.php');?>
+
                   </tbody>
                   <tfoot>
                   <tr>
@@ -1042,7 +1042,7 @@
                               <div class="input-group-prepend">  
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                               </div>
-                              <input type="text" class="form-control" id="editusername" name="editusername" placeholder="Username" >
+                              <input type="text" readonly class="form-control" id="editusername" name="editusername" placeholder="Username" >
                           </div>
                         </div>
                         <div class="form-group">
@@ -1189,40 +1189,6 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": true,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    // $('#example2').DataTable({
-    //   "paging": true,
-    //   "lengthChange": false,
-    //   "searching": false,
-    //   "ordering": true,
-    //   "info": true,
-    //   "autoWidth": false,
-    //   "responsive": true,
-    // });
-    $(document).ready(function() {
-      var table = $('#example1').DataTable();
-      
-      $('#example1 tbody').on('click', 'tr', function () {
-          var data = table.row( this ).data();
-          alert( 'You clicked on '+data[0]+'\'s row' );
-          $("#editusername").val(data[0]);
-          $("#deleteusername").val(data[0]);
-          $("#editpassword").val(data[1]);
-          $("#editname").val(data[2]);
-          $("#editbirthday").val(data[3]);
-          $("#editgender").val(data[4]);
-          $("#editaddress").val(data[5]);
-          $("#editphonenumber").val(data[6]);
-          $("#editemail").val(data[7]);
-          $("#editidgroup").val(data[8]);
-      });
-    });
-  });
-</script>
+<script src="../../Assets/JS/AccountData.js"></script>
 </body>
 </html>
