@@ -6,6 +6,8 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+
 </head> 
 <body> 
 
@@ -15,7 +17,7 @@
 	<br>
 	<div class="row" id="ads">
     <!-- Category Card -->
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
         <div class="card rounded">
             <div class="card-image">
                 <span class="card-notify-badge">Low KMS</span>
@@ -55,11 +57,11 @@
                 
             </div>
         </div>
-    </div>
+    </div> -->
 
-    
 
 </div>
 </div>
+<script src="./Assets/JS/CatetoryData.js"></script>
 </body> 
 </html>
