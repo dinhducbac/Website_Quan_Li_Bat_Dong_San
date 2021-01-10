@@ -1,13 +1,15 @@
 <?php
      include('../Connect.php');
-     $query = mysqli_query($conn,"SELECT * FROM CateImage");
+     $query = mysqli_query($conn,"SELECT GroupCateName, CateName,CateAddress,CateContent,CateRent, CateStatus, CateImageLink
+     FROM groupcatetory INNER JOIN catetory ON groupcatetory.GroupCateID = catetory.GroupCateID
+     INNER JOIN cateimage ON catetory.CateID = cateimage.CateID");
      $sl = mysqli_num_rows($query);
      $array = array();
-     include('../Model/CateImageModel.php');
+     include('../Model/CateImageViewModel.php');
      while($row = mysqli_fetch_array($query)){
-         $cateimage = new CateImageModel($row['CateImageID'],$row['CateImageLink'],$row['CateID']);
-         $cateimagejson = $cateimage->GetCateImageJson();
-         array_push($array,$cateimagejson);   
+         $cateimageview = new CateImageViewModel($row['GroupCateName'],$row['CateName'],$row['CateAddress'],$row['CateContent'],$row['CateRent'],$row['CateStatus'],$row['CateImageLink']);
+         $cateimageviewjson = $cateimageview->GetCateImageViewJson();
+         array_push($array,$cateimageviewjson);   
      }
      $arr = array();
      $arr['data'] = $array;

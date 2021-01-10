@@ -19,6 +19,7 @@ $(document).ready(function(){
         var data = table.row( this ).data();
         alert( 'You clicked on '+data.Username+'\'s row' );
         $('#editusername').val(data.Username);
+        $('#deleteusername').val(data.Username);
         $('#editpassword').val(data.Password);
         $('#editname').val(data.Name);
         $('#editbirthday').val(data.BirthDay);

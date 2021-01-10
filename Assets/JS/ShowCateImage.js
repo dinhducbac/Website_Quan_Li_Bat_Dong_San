@@ -1,12 +1,20 @@
 $(document).ready(function () {
         $.ajax({
-            url: '../../Controller/ShowAllCateImageController.php',
-            type: 'GET',
+            'url': './Controller/ShowAllCateImageController.php',
+            'type': 'GET',
             success: function (data) {
+                // $('#ads').append('<p>Hello</p>');
                 data= JSON.parse(data);
                 data = data.data;
                 data.forEach(dt => {
-                    $('ads').append(' <div class="col-md-4"><div class="card rounded"><div class="card-image"><span class="card-notify-badge">Low KMS</span><span class="card-notify-year">2018</span><img class="img-fluid" src="./Assets/Images/Biet_Thu_NIOMON.png" alt="Alternate Text" /></div><div class="card-image-overlay m-auto"><span class="card-detail-badge">Used</span><span class="card-detail-badge">$28,000.00</span><span class="card-detail-badge">13000 Kms</span></div><div class="card-body text-center"><div class="ad-title m-auto"><h5>Honda Accord LX</h5></div><a class="ad-btn" href="#">View</a></div></div></div>'); 
+                    if(dt.CateStatus =='1')
+                    {
+                        $('#ads').append('<div class="col-md-4"><div class="card rounded"><div class="card-image"><span class="card-notify-badge">'+dt.GroupCateName+'</span><span class="card-notify-year">'+dt.CateContent+'</span><img class="img-fluid" src=".'+dt.CateImageLink+'" alt="Alternate Text" /></div><div class="card-image-overlay m-auto"><span class="card-detail-badge">Còn</span><span class="card-detail-badge">Giá: '+dt.CateRent+' VND</span></div><div class="card-body text-center"><div class="ad-title m-auto"><h5>'+dt.CateName+'</h5><span>Địa chỉ: '+dt.CateAddress+'</span></div><a class="ad-btn" href="#">View</a></div></div></div>'); 
+                    }
+                    else{
+                        $('#ads').append('<div class="col-md-4"><div class="card rounded"><div class="card-image"><span class="card-notify-badge">'+dt.GroupCateName+'</span><span class="card-notify-year">'+dt.CateContent+'</span><img class="img-fluid" src=".'+dt.CateImageLink+'" alt="Alternate Text" /></div><div class="card-image-overlay m-auto"><span class="card-detail-badge">Không còn/Đang giao dịch</span><span class="card-detail-badge">Giá: '+dt.CateRent+' VND</span></div><div class="card-body text-center"><div class="ad-title m-auto"><h5>'+dt.CateName+'</h5><span>Địa chỉ: '+dt.CateAddress+'</span></div><a class="ad-btn" href="#">View</a></div></div></div>'); 
+                    }
+                    
                 });
             },
             error: function (e) {
