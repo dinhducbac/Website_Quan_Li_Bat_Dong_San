@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Cấu trúc bảng cho bảng `account`
 --
+create database qlbds;
+use qlbds;
 
 CREATE TABLE `account` (
   `Username` varchar(20) NOT NULL,
@@ -108,6 +110,12 @@ CREATE TABLE `contact` (
   `ContactEmail` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+insert into contact(ContactName,ContactAddress,ContactPhone,ContactEmail)
+values('Huỳnh Tấn Thịnh','02 đường 4A, Mai Xuân Thưởng, Nha Trang','0368456123','httthinh1999@gmail.com');
+insert into contact(ContactName,ContactAddress,ContactPhone,ContactEmail)
+values('Nguyễn Duy Đạt','02 đường 4A, Mai Xuân Thưởng, Nha Trang','0374589741','nguyenduydat@gmail.com');
+
+select * from contact;
 -- --------------------------------------------------------
 
 --
