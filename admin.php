@@ -136,6 +136,12 @@
                   <p>Manage Contact</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="./pages/admin/CateImage.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage CateImage</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
