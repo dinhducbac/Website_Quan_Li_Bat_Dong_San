@@ -10,14 +10,15 @@ $(document).ready(function(){
             {'data':'CateContent'},
             {'data':'CateRent'},
             {'data':'CateStatus'},
-            {'data':'GroupCateID'}
+            {'data':'GroupCateID'},
+            {'data':'ContactID'}
         ]
     });
     $('#example1 tbody').on('click', 'tr', function () {
         var data = table.row( this ).data();
         alert( 'You clicked on '+data.CateName+'\'s row' );
-        $("#EditGroupCateName").val(data.GroupCateName);
-        $("#EditGroupCateID").val(data.GroupCateID);
+        $("#EditCateName").val(data.GroupCateName);
+        $("#EditCateID").val(data.GroupCateID);
         $("#DeleteGroupCateName").val(data.GroupCateName);
     });
 });

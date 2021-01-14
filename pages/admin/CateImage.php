@@ -1,5 +1,5 @@
 
-<?php require '../../Controller/CatetoryManager.php';?>
+<?php require '../../Controller/GroupCateManager.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +36,8 @@
 <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -155,7 +157,6 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -186,35 +187,25 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <a class="btn btn-app" href="#addcatetory"><i class="fas fa-edit"></i>Add</a> 
-                <a class="btn btn-app" href="#editcatetory"><i class="fas fa-edit"></i>Edit</a> 
-                <a class="btn btn-app" href="#deletecatetory"><i class="fas fa-edit"></i>Delete</a> 
+                <a class="btn btn-app" href="#addcateimage"><i class="fas fa-edit"></i>Add</a> 
+                <a class="btn btn-app" href="#editcateimage"><i class="fas fa-edit"></i>Edit</a> 
+                <a class="btn btn-app" href="#deletecateimage"><i class="fas fa-edit"></i>Delete</a> 
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>CateImageID</th>
+                    <th>CateImageLink</th>
                     <th>CateID</th>
-                    <th>CateName</th>
-                    <th>CateAddress</th>
-                    <th>CateContent</th>
-                    <th>CateRent</th>
-                    <th>CateStatus</th>
-                    <th>GroupCateID</th>
-                    <th>ContactID</th>
                   </tr>
                   </thead>
                   <tbody>
-
+                  
                   </tbody>
                   <tfoot>
                   <tr>
+                  <th>CateImageID</th>
+                    <th>CateImageLink</th>
                     <th>CateID</th>
-                    <th>CateName</th>
-                    <th>CateAddress</th>
-                    <th>CateContent</th>
-                    <th>CateRent</th>
-                    <th>CateStatus</th>
-                    <th>GroupCateID</th>
-                    <th>ContactID</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -227,83 +218,44 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <section id="addcatetory">
+            <section id="addcateimage">
                 <div class="col-12">
                   <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">Add Catetory</h3>
+                      <h3 class="card-title">Add CateImage</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                     <form   method='POST'> 
                       <div class="form-group">
-                        <label>CateName</label> 
+                        <label>CateImageLink</label> 
                         <div class="input-group mb-3"> 
                             <div class="input-group-prepend">  
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="CateName" name="CateName" placeholder="CateName">
+                            <input type="text" class="form-control" id="CateImageLink" name="CateImageLink" placeholder="CateImageLink">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label>CateAddress</label> 
+                        <label>CateID</label> 
                         <div class="input-group mb-3"> 
                             <div class="input-group-prepend">  
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="CateAddress" name="CateAddress" placeholder="CateAddress">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>CateContent</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="CateContent" name="CateContent" placeholder="CateContent">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>CateRent</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="CateRent" name="CateRent" placeholder="CateRent">
-                        </div>
-                      </div>
-                     <div class="form-group">
-                        <label>CateStatus</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <select id="CateStatus" class="form-control" name="CateStatus">
-                              <option value="0">Không còn/Đang giao dịch</option>
-                              <option value="1">Còn</option>
-                            </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>GroupCateID</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <select id="GroupCateID" class="form-control" name="GroupCateID">
+                            <select id="CateID" class="form-control" name="CateID">
                               <!-- <option value="0">Không còn/Đang giao dịch</option>
                                     <option value="1">Còn</option> -->
                                 <?php  
                                     include('../../Connect.php');
-                                    $query = mysqli_query($conn,"SELECT * FROM GroupCatetory");
+                                    $query = mysqli_query($conn,"SELECT * FROM Catetory");
                                     $sl = mysqli_num_rows($query);
                                     while($row = mysqli_fetch_array($query)){?>
-                                        <option value = "<?php echo $row['GroupCateID'] ?>"><?php echo $row['GroupCateName'] ?></option>
+                                        <option value = "<?php echo $row['CateID'] ?>"><?php echo $row['CateName'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
                       </div>
-                        <input type='submit' class="button" name="addcatetory" value='ADD' /> 
+                        <input type='submit' class="button" name="addcateimage" value='ADD' /> 
                     </form> 
                     </div>
                     <!-- /.card-body -->
@@ -312,93 +264,54 @@
                 </div>
                 <!-- /.col -->
               </section>
-                <section id="editcatetory">
+                <section id="editgroupcate">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Edit Catetory</h3>
+                        <h3 class="card-title">Edit CateImage</h3>
                       </div>
                       <!-- /.card-header -->
                       <div class="card-body">
-                      <form   method='POST'> 
-                      <div class="form-group">
+                        <form   method='POST'> 
+                        <div class="form-group">
+                            <label>GroupCate ID</label> 
+                            <div class="input-group mb-3"> 
+                                <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" readonly id="EditCateImageID" name="EditCateImageID" placeholder="EditCateImageID">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>CateImageLink</label> 
+                            <div class="input-group mb-3"> 
+                                <div class="input-group-prepend">  
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="EditCateImageLink" name="EditCateImageLink" placeholder="CateImageLink">
+                            </div>
+                        </div>
+                        <div class="form-group">
                         <label>CateID</label> 
                         <div class="input-group mb-3"> 
                             <div class="input-group-prepend">  
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" readonly class="form-control" id="EditCateID" name="EditCateID" placeholder="CateID">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>CateName</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="EditCateName" name="EditCateName" placeholder="CateName">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>CateAddress</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="EditCateAddress" name="EditCateAddress" placeholder="CateAddress">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>CateContent</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="EditCateContent" name="EditCateContent" placeholder="CateContent">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>CateRent</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="EditCateRent" name="EditCateRent" placeholder="CateRent">
-                        </div>
-                      </div>
-                     <div class="form-group">
-                        <label>CateStatus</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <select id="EditCateStatus" class="form-control" name="EditCateStatus">
-                              <option value="0">Không còn/Đang giao dịch</option>
-                              <option value="1">Còn</option>
-                            </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>GroupCateID</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <select id="EditGroupCateID" class="form-control" name="EditGroupCateID">
+                            <select id="EditCateID" class="form-control" name="EditCateID">
                               <!-- <option value="0">Không còn/Đang giao dịch</option>
                                     <option value="1">Còn</option> -->
                                 <?php  
                                     include('../../Connect.php');
-                                    $query = mysqli_query($conn,"SELECT * FROM GroupCatetory");
+                                    $query = mysqli_query($conn,"SELECT * FROM Catetory");
                                     $sl = mysqli_num_rows($query);
                                     while($row = mysqli_fetch_array($query)){?>
-                                        <option value = "<?php echo $row['GroupCateID'] ?>"><?php echo $row['GroupCateName'] ?></option>
+                                        <option value = "<?php echo $row['CateID'] ?>"><?php echo $row['CateName'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
                       </div>
-                        <input type='submit' class="button" name="editcatetory" value='EDIT' /> 
-                      </form> 
+                            <input type='submit' class="button" name="editcateimage" value='EDIT' /> 
+                        </form> 
                       </div>
                       <!-- /.card-body -->
                     </div>
@@ -406,26 +319,26 @@
                   </div>
                 <!-- /.col -->
               </section>
-              <section id="deletecatetory">
+              <section id="deletegroupcate">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Delete Catetory</h3>
+                        <h3 class="card-title">Delete CateImage</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                           <form   method='POST'> 
                             <div class="form-group">
-                              <label>Username</label> 
+                              <label>CateImageID</label> 
                               <div class="input-group mb-3"> 
                                   <div class="input-group-prepend">  
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                   </div>
-                                  <input type="text" class="form-control" id="deletecatename" name="deletecatename" placeholder="CateName">
+                                  <input type="text" class="form-control" readonly id="DeleteCateImageID" name="DeleteCateImageID" placeholder="CateImageID">
                               </div>
                             </div>
                       
-                              <input type='submit' class="button" name="deletecatetory" value='delete' /> 
+                              <input type='submit' class="button" name="deletecateimage" value='DELETE' /> 
                           </form> 
                       </div>
                       <!-- /.card-body -->
@@ -459,8 +372,8 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery -->
-<script src="../../Assets/JS/CatetoryData.js"></script>
+<script src="../../Assets/JS/CateImageData.js"></script>
+
 </body>
 </html>

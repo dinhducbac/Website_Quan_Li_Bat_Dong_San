@@ -6,7 +6,7 @@
       $array = array();
       include('../Model/CatetoryModel.php');
       while($row = mysqli_fetch_array($query)){
-        $cate = new CatetoryModel($row['CateID'],$row['CateName'],$row['CateAddress'],$row['CateContent'],$row['CateRent'],$row['CateStatus'],$row['GroupCateID']);
+        $cate = new CatetoryModel($row['CateID'],$row['CateName'],$row['CateAddress'],$row['CateContent'],$row['CateRent'],$row['CateStatus'],$row['GroupCateID'],$row['ContactID']);
         $catejson = $cate->GetCateJson();
         array_push($array,$catejson);
       }

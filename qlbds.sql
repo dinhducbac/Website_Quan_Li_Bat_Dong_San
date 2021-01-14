@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 create database qlbds;
 use qlbds;
+drop database qlbds;
 
 CREATE TABLE `account` (
   `Username` varchar(20) NOT NULL,
@@ -78,23 +79,16 @@ INSERT INTO `cateimage` (`CateImageID`, `CateImageLink`, `CateID`) VALUES
 -- Cấu trúc bảng cho bảng `catetory`
 --
 
-CREATE TABLE `catetory` (
-  `CateID` int(11) NOT NULL,
-  `CateName` varchar(300) NOT NULL,
-  `CateAddress` varchar(500) NOT NULL,
-  `CateContent` varchar(500) NOT NULL,
-  `CateRent` decimal(10,0) NOT NULL,
-  `CateStatus` bit(1) NOT NULL,
-  `GroupCateID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Đang đổ dữ liệu cho bảng `catetory`
 --
+/*alter table Catetory 
+add column ContactID int not null;
 
-INSERT INTO `catetory` (`CateID`, `CateName`, `CateAddress`, `CateContent`, `CateRent`, `CateStatus`, `GroupCateID`) VALUES
-(1, 'Biệt thự NIOMON', '02, đường 4A, Mai Xuân Thưởng, Vĩnh Hải, Nha Trang, Khánh Hòa', 'Bán', '2000000000', b'1', 1),
-(6, 'Văn phòng CopTiger', '03, đường 4A, Mai Xuân Thưởng, Vĩnh Hải, Nha Trang, Khánh Hòa', 'Thuê', '5000000', b'1', 3);
+ALTER TABLE Catetory  ADD CONSTRAINT fk_Contact FOREIGN KEY(ContactID) REFERENCES Contact(ContactID);*/
+--
 
 -- --------------------------------------------------------
 
@@ -110,17 +104,29 @@ CREATE TABLE `contact` (
   `ContactEmail` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into contact(ContactName,ContactAddress,ContactPhone,ContactEmail)
-values('Huỳnh Tấn Thịnh','02 đường 4A, Mai Xuân Thưởng, Nha Trang','0368456123','httthinh1999@gmail.com');
-insert into contact(ContactName,ContactAddress,ContactPhone,ContactEmail)
-values('Nguyễn Duy Đạt','02 đường 4A, Mai Xuân Thưởng, Nha Trang','0374589741','nguyenduydat@gmail.com');
+insert into `contact`(`ContactID`,`ContactName`, `ContactAddress`, `ContactPhone`, `ContactEmail`)
+values('1','Huỳnh Tấn Thịnh','02 đường 4A, Mai Xuân Thưởng, Nha Trang','0368456123','httthinh1999@gmail.com');
+insert into `contact`(`ContactID`,`ContactName`, `ContactAddress`, `ContactPhone`, `ContactEmail`)
+values('2','Nguyễn Duy Đạt','02 đường 4A, Mai Xuân Thưởng, Nha Trang','0374589741','nguyenduydat@gmail.com');
 
-select * from contact;
+
 -- --------------------------------------------------------
-
---
+CREATE TABLE `catetory` (
+  `CateID` int(11) NOT NULL,
+  `CateName` varchar(300) NOT NULL,
+  `CateAddress` varchar(500) NOT NULL,
+  `CateContent` varchar(500) NOT NULL,
+  `CateRent` decimal(10,0) NOT NULL,
+  `CateStatus` bit(1) NOT NULL,
+  `GroupCateID` int(11) NOT NULL,
+   `ContactID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 -- Cấu trúc bảng cho bảng `groupbds`
 --
+
+INSERT INTO `catetory` (`CateID`, `CateName`, `CateAddress`, `CateContent`, `CateRent`, `CateStatus`, `GroupCateID`,`ContactID`) VALUES
+(1, 'Biệt thự NIOMON', '02, đường 4A, Mai Xuân Thưởng, Vĩnh Hải, Nha Trang, Khánh Hòa', 'Bán', '2000000000', b'1', 1,1),
+(6, 'Văn phòng CopTiger', '03, đường 4A, Mai Xuân Thưởng, Vĩnh Hải, Nha Trang, Khánh Hòa', 'Thuê', '5000000', b'1', 3,2);
 
 CREATE TABLE `groupbds` (
   `IDGroup` int(11) NOT NULL,
@@ -248,13 +254,18 @@ ALTER TABLE `account`
 ALTER TABLE `cateimage`
   ADD CONSTRAINT `cateimage_ibfk_1` FOREIGN KEY (`CateID`) REFERENCES `catetory` (`CateID`);
 
+
 --
 -- Các ràng buộc cho bảng `catetory`
---
 ALTER TABLE `catetory`
-  ADD CONSTRAINT `catetory_ibfk_1` FOREIGN KEY (`GroupCateID`) REFERENCES `groupcatetory` (`GroupCateID`);
-COMMIT;
+  ADD CONSTRAINT `fk_catetory` FOREIGN KEY (`ContactID`) REFERENCES `contact` (`ContactID`);
+  ALTER TABLE `catetory`
+  ADD CONSTRAINT `fk_catetory1` FOREIGN KEY (`GroupCateID`) REFERENCES `groupcatetory` (`GroupCateID`);
+--
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+select * from contact;

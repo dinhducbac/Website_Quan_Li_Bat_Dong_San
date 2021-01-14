@@ -68,9 +68,9 @@
         // }        
          //header("Refresh:0");
     }
-    if(isset($_POST['deleteaccount'])){
-        $username = addslashes($_POST['deleteusername']);
-        $query = "DELETE FROM Account WHERE Username = '".$username."'";
+    if(isset($_POST['deletecatetory'])){
+        $catename = addslashes($_POST['deletecatename']);
+        $query = "DELETE FROM Catetory WHERE Catename = '".$catename."'";
         $result = mysqli_query($conn,$query);
         if($result){
             echo "Xóa thành công";

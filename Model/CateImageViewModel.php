@@ -7,7 +7,8 @@ class CateImageViewModel{
     private $CateRent;
     private $CateStatus;
     private $CateImageLink;
-    public function CateImageViewModel($GroupCateName,$CateName,$CateAddress,$CateContent,$CateRent,$CateStatus,$CateImageLink){
+    private $ContactID;
+    public function CateImageViewModel($GroupCateName,$CateName,$CateAddress,$CateContent,$CateRent,$CateStatus,$CateImageLink,$ContactID){
         $this->GroupCateName = $GroupCateName;
         $this->CateName = $CateName;
         $this->CateAddress = $CateAddress;
@@ -15,6 +16,7 @@ class CateImageViewModel{
         $this->CateRent = $CateRent;
         $this->CateStatus = $CateStatus;
         $this->CateImageLink = $CateImageLink;
+        $this->ContactID = $ContactID;
     }
     public function GetCateImageViewJson(){
         return [
@@ -25,6 +27,7 @@ class CateImageViewModel{
             'CateRent' =>  $this->CateRent,
             'CateStatus' =>  $this->CateStatus,
             'CateImageLink' =>  $this->CateImageLink,
+            'ContactID' => $this->ContactID
         ];
     }
 }
