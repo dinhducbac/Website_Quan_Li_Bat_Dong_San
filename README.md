@@ -10,10 +10,10 @@ Bắc (Model, View, Controller)
     * Liên hệ chủ sở hữu
    ### Chủ sở hữu
     * Thêm, sửa, xóa, bất động sản
-    * Phản hồi người dùng
    ### Admin
     * Quản lí tài khoản
     * Quản lí bất động sản
+    * Quản lí ảnh bất động sản
 ## Công nghệ sử dụng 
   * PHP
   * MySQL
