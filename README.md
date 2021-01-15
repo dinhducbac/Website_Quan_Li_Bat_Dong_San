@@ -6,8 +6,8 @@ Hệ thống quản lý bất động sản khu vực vực thành phố Nha Tra
 Bắc (Model, View, Controller)
 ## Chức năng
   ### Người dùng
-    * Tìm kiếm bất động sản
-    * Liên hệ chủ sở hữu
+    * Xem thông tin bất động sản
+    * Xem thông tin liên hệ chủ sở hữu
    ### Chủ sở hữu
     * Thêm, sửa, xóa, bất động sản
    ### Admin
