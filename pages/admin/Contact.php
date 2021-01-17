@@ -1,5 +1,5 @@
 
-<?php require '../../Controller/GroupCateManager.php';?>
+<?php require '../../Controller/ContactManager.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -126,27 +126,33 @@
             <ul class="nav nav-treeview">
        
               <li class="nav-item">
-                <a href="./pages/admin/Account.php" class="nav-link">
+                <a href="./Account.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Account</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/admin/GroupCate.php" class="nav-link">
+                <a href="./GroupCate.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Group Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/admin/Catetory.php" class="nav-link">
+                <a href="./Catetory.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Group Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/admin/Contact.php" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Contact</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./CateImage.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage CateImage</p>
                 </a>
               </li>
             </ul>
@@ -349,12 +355,12 @@
                         <div class="card-body">
                           <form   method='POST'> 
                             <div class="form-group">
-                              <label>ContactName</label> 
+                              <label>ContactID</label> 
                               <div class="input-group mb-3"> 
                                   <div class="input-group-prepend">  
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                   </div>
-                                  <input type="text" class="form-control" readonly id="DeleteContactName" name="DeleteContactName" placeholder="ContactName">
+                                  <input type="text" class="form-control" readonly id="DeleteContactID" name="DeleteContactID" placeholder="ContactID">
                               </div>
                             </div>
                       

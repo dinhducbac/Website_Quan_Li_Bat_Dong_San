@@ -126,27 +126,33 @@
             <ul class="nav nav-treeview">
        
               <li class="nav-item">
-                <a href="./pages/admin/Account.php" class="nav-link">
+                <a href="./Account.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Account</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/admin/GroupCate.php" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Group Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/admin/Catetory.php" class="nav-link">
+                <a href="./Catetory.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/admin/Contact.php" class="nav-link">
+                <a href="./Contact.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Contact</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./CateImage.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage CateImage</p>
                 </a>
               </li>
             </ul>

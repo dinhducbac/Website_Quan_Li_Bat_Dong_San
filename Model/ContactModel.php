@@ -1,10 +1,10 @@
 <?php
     class ContactModel{
-        private $ContactID;
-        private $ContactName;
-        private $ContactAddress;
-        private $ContactPhone;
-        private $ContactEmail;
+        public $ContactID;
+        public $ContactName;
+        public $ContactAddress;
+        public $ContactPhone;
+        public $ContactEmail;
 
         public function ContactModel($ContactID,$ContactName,$ContactAddress,$ContactPhone,$ContactEmail){
             $this->ContactID = $ContactID;

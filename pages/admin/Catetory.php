@@ -124,27 +124,33 @@
             <ul class="nav nav-treeview">
        
               <li class="nav-item">
-                <a href="./pages/admin/Account.php" class="nav-link">
+                <a href="./Account.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Account</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/admin/GroupCate.php" class="nav-link">
+                <a href="./GroupCate.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Group Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/admin/Catetory.php" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/admin/Contact.php" class="nav-link">
+                <a href="./Contact.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Contact</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./CateImage.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage CateImage</p>
                 </a>
               </li>
             </ul>
@@ -299,6 +305,25 @@
                                     $sl = mysqli_num_rows($query);
                                     while($row = mysqli_fetch_array($query)){?>
                                         <option value = "<?php echo $row['GroupCateID'] ?>"><?php echo $row['GroupCateName'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>ContactID</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <select id="ContactID" class="form-control" name="ContactID">
+                              <!-- <option value="0">Không còn/Đang giao dịch</option>
+                                    <option value="1">Còn</option> -->
+                                <?php  
+                                    include('../../Connect.php');
+                                    $query = mysqli_query($conn,"SELECT * FROM Contact");
+                                    $sl = mysqli_num_rows($query);
+                                    while($row = mysqli_fetch_array($query)){?>
+                                        <option value = "<?php echo $row['ContactID'] ?>"><?php echo $row['ContactName'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>

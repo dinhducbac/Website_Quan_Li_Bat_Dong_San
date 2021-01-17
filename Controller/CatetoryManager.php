@@ -9,6 +9,7 @@
         $caterent = addslashes($_POST['CateRent']);
         $catestatus = addslashes($_POST['CateStatus']);
         $groupcateid = addslashes($_POST['GroupCateID']);
+        $contactid = addslashes($_POST['ContactID']);
         if(!$catename || !$cateaddress || !$catecontent || !$caterent){
             echo "Vui lòng nhập đầy đủ thông tin";  
             exit;
@@ -17,9 +18,9 @@
          $result = mysqli_query($conn,$query);
          $row = mysqli_fetch_array($result);
          include('../../Model/CatetoryModel.php');
-         $catetory = new CatetoryModel($row['CateID']+1, $catename,$cateaddress,$catecontent,$caterent,$catestatus,$groupcateid);
-         $query = "INSERT INTO Catetory (CateName,CateAddress,CateContent,CateRent,CateStatus,GroupCateID)
-            VALUES('".$catetory->CateName."','".$catetory->CateAddress."','".$catetory->CateContent."','".$catetory->CateRent."','".$catetory->CateStatus."','".$catetory->GroupCateID."')";
+         $catetory = new CatetoryModel($row['CateID']+1, $catename,$cateaddress,$catecontent,$caterent,$catestatus,$groupcateid,$contactid);
+         $query = "INSERT INTO Catetory (CateName,CateAddress,CateContent,CateRent,CateStatus,GroupCateID,ContactID)
+            VALUES('".$catetory->CateName."','".$catetory->CateAddress."','".$catetory->CateContent."','".$catetory->CateRent."','".$catetory->CateStatus."','".$catetory->GroupCateID."','".$catetory->ContactID."')";
          echo $query;
          $result = mysqli_query($conn,$query); 
          
@@ -32,23 +33,21 @@
         // }        
          //header("Refresh:0");
     }
-    if(isset($_POST['editaccount'])){
-        $username = addslashes($_POST['editusername']);
-        $password = addslashes($_POST['editpassword']);
-        $name = addslashes($_POST['editname']);
-        $birthday = addslashes($_POST['editbirthday']);
-        $gender = addslashes($_POST['editgender']);
-        $address = addslashes($_POST['editaddress']);
-        $phonenumber = addslashes($_POST['editphonenumber']);
-        $email = addslashes($_POST['editemail']);
-        $idgroup = addslashes($_POST['editidgroup']);
-        if(!$username || !$password || !$name || !$address || !$email ){
+    if(isset($_POST['editcatetory'])){
+        $CateID = addslashes($_POST['EditCateID']);
+        $CateName = addslashes($_POST['EditCateName']);
+        $CateAddress = addslashes($_POST['EditCateAddress']);
+        $CateContent = addslashes($_POST['EditCateContent']);
+        $CateRent = addslashes($_POST['EditCateRent']);
+        $CateStatus = addslashes($_POST['EditCateStatus']);
+        $GroupCateID = addslashes($_POST['EditGroupCateID']);
+        if(!$CateID || !$CateName || !$CateAddress || !$CateContent || !$CateRent || !$CateStatus ||  $GroupCateID ){
             echo "Vui lòng nhập đầy đủ thông tin";  
             exit;
          }
-         include('../../Model/AccountModel.php');
-         $account = new AccountModel($username,$password,$name,$birthday,$gender,$address,$phonenumber,$email,$idgroup);
-         $query = "UPDATE Account SET  Password = '".$account->Password."', Name = '"
+         include('../../Model/CatetoryModel.php');
+         $catetory = new CatetoryModel($CateID,$CateName,$CateAddress,$CateContent,$CateRent,$CateStatus,$GroupCateID,$email,$idgroup);
+         $query = "UPDATE Catetory SET  Password = '".$account->Password."', Name = '"
          .$account->Name."', BirthDay = '".$account->Birthday."',Gender='".$account->Gender."',Address='".$account->Address.
          "',PhoneNumber = '".$account->PhoneNumber."', Email = '".$account->Email."',IDGroup = '".$account->IDGroup."' WHERE  Username = '".$account->Username."'";
 

@@ -22,6 +22,6 @@ $(document).ready(function (){
       $("#EditContactPhone").val(data.ContactPhone);
       $("#EditContactEmail").val(data.ContactEmail);
       $("#EditContactID").val(data.ContactID);
-      $("#DeleteContactName").val(data.ContactName);
+      $("#DeleteContactID").val(data.ContactID);
   });
 });
