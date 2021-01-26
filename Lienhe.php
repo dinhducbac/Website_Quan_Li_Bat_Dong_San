@@ -3,46 +3,101 @@
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <link rel="stylesheet" href="style.css"/> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link
+      rel="stylesheet"
+      href="./Assets/CSS/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="./Assets/CSS/aos.css" />
 
+    <!-- inject:css -->
+    <link rel="stylesheet" href="./Assets/CSS/indexstyle.css">
+    <script src="./Assets/JS/jquery.min.js"></script>
 </head> 
 <body> 
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" target="_blank" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine">
-                YOUR LOGO
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="ml-auto navbar-nav text-uppercase">
-                    <li class="nav-item active">
-                        <a class="nav-link p-3" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
+<header id="header">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <div class="navbar-top">
+                <div class="d-flex justify-content-between align-items-center">
+                  <ul class="navbar-top-left-menu">
+                  </ul>
+                  <ul class="navbar-top-right-menu">
                     <li class="nav-item">
-                        <a class="nav-link p-3" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">About us</a>
+                      <a href="#" class="nav-link"><i class="mdi mdi-magnify"></i></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link p-3" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link p-3" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">My Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link p-3" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Sign Out</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+                    <?php
+                        if (session_id() === '') session_start();
+                        if(isset($_SESSION['Username'])){
+                            echo '  <li class="nav-item">
+                                        <a class="nav-link" href="#">My Account</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.php" id="logout">Log Out</a>
+                                    </li>';
+                        }
+                        else{
+                            echo '
+                                    <li class="nav-item">
+                                        <a href="Login.php" class="nav-link">Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="Register.php" class="nav-link">Register</a>
+                                    </li>';
+                        }
+                    ?>
+                  
+                  </ul>
+                </div>
+              </div>
+              <div class="navbar-bottom">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <a class="navbar-brand" href="index.php">
+                        <h2 style ="color:white; font-weight: bold;">PUPPY</h2>
+                    </a>
+                  </div>
+                  <div>
+                    <button
+                      class="navbar-toggler"
+                      type="button"
+                      data-target="#navbarSupportedContent"
+                      aria-controls="navbarSupportedContent"
+                      aria-expanded="false"
+                      aria-label="Toggle navigation"
+                    >
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div
+                      class="navbar-collapse justify-content-center collapse"
+                      id="navbarSupportedContent"
+                    >
+                      <ul
+                        class="navbar-nav d-lg-flex justify-content-between align-items-center"
+                      >
+                        <li>
+                          <button class="navbar-close">
+                            <i class="mdi mdi-close"></i>
+                          </button>
+                        </li>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="Category.php">Category</a>
+                        </li>              
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Contact</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </nav>
+          </div>
+        </header>
 <section id="about-us" class="py-5">
     <div class="container">
         <div class="row">
@@ -92,9 +147,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active show" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">Profile</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Latest post</a>
-                                </li>
+                                
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade active show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -109,7 +162,7 @@
                                       
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <!-- <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                                     <div class="p-3 border mb-3">
                                         <h5>Recently Published</h5>
                                         <div class="row">
@@ -131,7 +184,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -140,7 +193,59 @@
         </div>
     </div>
 </section>
+<footer>
+          <div class="footer-top">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <img src="assets/images/logo.svg" class="footer-logo" alt="" />
+                  <h5 class="font-weight-normal mt-4 mb-5">
+                    Puppy is a real estate website in Vietnam. Updating the current real estate market, providing readers with accurate information and analytical perspectives on the real estate market from industry experts. In addition, CafeLand also provides readers with all information about events, projects, feng-shui trends and houses so that you can have a better overview of information on real estate sales in Viet Nam
+                  </h5>
+               
+                </div>
+                <div class="col-sm-6" id="recentpost">
+                  <h3 class="font-weight-bold mb-3">RECENT POSTS</h3>
+                
+                </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="d-sm-flex justify-content-between align-items-center">
+                    <div class="fs-14 font-weight-600">
+                      © 2020 @ <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white"> BootstrapDash</a>. All rights reserved.
+                    </div>
+                    <div class="fs-14 font-weight-600">
+                      Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
 
+        <!-- partial -->
+      </div>
+    </div>
+    <script  src="./Assets/JS/ShowMainCateNew.js"></script>
+    <script  src="./Assets/JS/ShowMostViewCateNew.js"></script>
+    <script  src="./Assets/JS/ShowFlashNew.js"></script>
+    <script  src="./Assets/JS/ShowRecentPost.js"></script>
+    <script src="./Assets/JS/vendor.bundle.base.js"></script>
+    <script src="./Assets/JS/aos.js"></script>
+    <script src="./Assets/JS/demo.js"></script>
+    <script src="./Assets/JS/jquery.easeScroll.js"></script>
+    <script type="text/javascript">
+        $('#logout').click(function(){
+                <?php
+                    unset($_SESSION['Username']);
+                ?>
+            });
+    </script>
 </body> 
 </html>
 
