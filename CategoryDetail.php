@@ -101,7 +101,7 @@
                             <a class="nav-link" href="index.php">Home</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" href="#">Category</a>
+                            <a class="nav-link" href="Category.php">Category</a>
                             </li>              
                             <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -116,12 +116,12 @@
             </div>
             </header>
             <?php
-                $id = 1;
+                $id = $_GET['id'];
                 include('./Connect.php');
             ?>
             <?php
                            
-                $query = mysqli_query($conn,"SELECT CateName, CateAddress,CateContent,CateRent,CateImageLink FROM Catetory INNER JOIN CateImage ON Catetory.CateID = CateImage.CateID WHERE Catetory.CateID = ".$id." limit 1" );
+                $query = mysqli_query($conn,"SELECT CateName, CateAddress,CateContent,CateRent,CateImageLink, ContactID FROM Catetory INNER JOIN CateImage ON Catetory.CateID = CateImage.CateID WHERE Catetory.CateID = ".$id." limit 1" );
                 while($row = mysqli_fetch_array($query)){
             ?>
     <div class="wrapper">
@@ -132,30 +132,9 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="product-details-large" id="ProductPhoto">
-                                    <img id="ProductPhotoImg" class="product-zoom" data-image-id="" alt="12. Aliexpress dropshipping by oberlo" data-zoom-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/36_1024x1024.jpg?v=1544416552" src="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/36_1024x1024.jpg?v=1544416552">
+                                    <img id="ProductPhotoImg" class="product-zoom" data-image-id="" alt="" data-zoom-image=".<?php echo $row['CateImageLink'];?>" src=".<?php echo $row['CateImageLink'];?>">
           
                                 </div>
-                                <!-- <div id="ProductThumbs" class="product-thumbnail owl-carousel">
-                                    <a class="product-single__thumbnail active" href="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/36_1024x1024.jpg?v=1544416552" data-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/36_1024x1024.jpg?v=1544416552" data-zoom-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/36_1024x1024.jpg?v=1544416552" data-image-id="6995357106246">
-                                    <img src="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/36_compact.jpg?v=1544416552" alt="12. Aliexpress dropshipping by oberlo"></a>
-          
-                                    <a class="product-single__thumbnail " href="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/40_1024x1024.jpg?v=1544416552" 
-                                    data-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/40_1024x1024.jpg?v=1544416552" data-zoom-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/40_1024x1024.jpg?v=1544416552" data-image-id="6995358023750">
-                                    <img src="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/40_compact.jpg?v=1544416552" alt="12. Aliexpress dropshipping by oberlo"></a>
-          
-                                    <a class="product-single__thumbnail " href="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/37_1024x1024.jpg?v=1544416552" 
-                                    data-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/37_1024x1024.jpg?v=1544416552" data-zoom-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/37_1024x1024.jpg?v=1544416552" data-image-id="6995357302854">
-                                    <img src="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/37_compact.jpg?v=1544416552" alt="12. Aliexpress dropshipping by oberlo"></a>
-          
-                                    <a class="product-single__thumbnail " href="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/38_1024x1024.jpg?v=1544416552" 
-                                    data-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/38_1024x1024.jpg?v=1544416552" data-zoom-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/38_1024x1024.jpg?v=1544416552" data-image-id="6995357532230">
-                                    <img src="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/38_compact.jpg?v=1544416552" alt="12. Aliexpress dropshipping by oberlo"></a>
-          
-                                    <a class="product-single__thumbnail " href="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/39_1024x1024.jpg?v=1544416552" 
-                                    data-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/39_1024x1024.jpg?v=1544416552" data-zoom-image="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/39_1024x1024.jpg?v=1544416552" data-image-id="6995357728838">
-                                    <img src="http://cdn.shopify.com/s/files/1/0067/5617/1846/products/39_compact.jpg?v=1544416552" alt="12. Aliexpress dropshipping by oberlo"></a>
-          
-                                </div> -->
                             </div>
                             <div class="col-md-7">
                                 <div class="single-product-content">
@@ -166,48 +145,19 @@
                                             <div class="single-product-reviews">
                                                 <span class="shopify-product-reviews-badge" data-id="1912078270534"></span>
                                             </div>
-                                            <div class="product-sku">SKU: <span class="variant-sku">YQT71020193</span></div>
+                                            <div class="product-sku">Hình thức: <span class="variant-sku"><?php echo $row['CateContent'];?></span></div>
                                             <div class="single-product-price">
-                                                <div class="product-discount"><span  class="price" id="ProductPrice"><span class=money>$20.66</span></span></div>
+                                                <div class="product-discount"><span  class="price" id="ProductPrice"><span class=money>Giá: <?php echo $row['CateRent'];?> VND</span></span></div>
                                             </div>
-                                            <div class="product-info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                                            <div class="product-info">Địa chỉ: <?php echo $row['CateAddress'];?></div>
                           
                                             <div class="single-product-action">
-                                                <div class="product-variant-option"> 
-                                                    <select name="id" id="productSelect" class="product-single__variants" style="display:none;">   
-                                                        <option  selected="selected"  data-sku="YQT71020193" value="19506517377094">Default Title - <span class=money>$20.66 USD</span></option>
-                                    
-                                                    </select>
-                                                    <script>
-                                                        jQuery(function() {
-                                                          jQuery('.swatch :radio').change(function() {
-                                                            var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
-                                                            var optionValue = jQuery(this).val();
-                                                            jQuery(this)
-                                                            .closest('form')
-                                                            .find('.single-option-selector')
-                                                            .eq(optionIndex)
-                                                            .val(optionValue)
-                                                            .trigger('change');
-                                                          });
-                                                        });
-                                                    </script>
-                                                </div>
-                                                <style>.product-variant-option .selector-wrapper{display: none;}</style>
-                                                <div class="product-add-to-cart">
+                                                 <div class="product-add-to-cart">
                                                     <div class="add">
-                                                        <button type="submit" class="add-to-cart ajax-spin-cart" id="AddToCart">
+                                                        <button type="button" class="add-to-cart ajax-spin-cart" id="AddToCart" onclick="document.location.href='Lienhe.php?id=<?php echo $row['ContactID'];?>'">
                                                             <i class="ion-bag"></i>
                                                             <span class="list-cart-title cart-title" id="AddToCartText">Xem liên hệ</span>
                                                         </button>
-                                                        <script>
-                                                            jQuery('#AddToCart').click(function(e) {
-                                                            e.preventDefault();
-                                                            Shopify.addItemFromFormStart('AddToCartForm', 1912078270534);
-                                                             }); 
-                                                        </script>
-
-                
                                                     </div>
                                                 </div>
                                             </div>                                                        

@@ -1,6 +1,7 @@
 <?php
 class CateImageViewModel{
     private $GroupCateName;
+    private $CateID;
     private $CateName;
     private $CateAddress;
     private $CateContent;
@@ -8,8 +9,9 @@ class CateImageViewModel{
     private $CateStatus;
     private $CateImageLink;
     private $ContactID;
-    public function CateImageViewModel($GroupCateName,$CateName,$CateAddress,$CateContent,$CateRent,$CateStatus,$CateImageLink,$ContactID){
+    public function CateImageViewModel($GroupCateName,$CateID,$CateName,$CateAddress,$CateContent,$CateRent,$CateStatus,$CateImageLink,$ContactID){
         $this->GroupCateName = $GroupCateName;
+        $this->CateID = $CateID;
         $this->CateName = $CateName;
         $this->CateAddress = $CateAddress;
         $this->CateContent = $CateContent;
@@ -21,6 +23,7 @@ class CateImageViewModel{
     public function GetCateImageViewJson(){
         return [
             'GroupCateName' =>  $this->GroupCateName,
+            'CateID' =>  $this->CateID,
             'CateName' =>  $this->CateName,
             'CateAddress' =>  $this->CateAddress,
             'CateContent' =>  $this->CateContent,
