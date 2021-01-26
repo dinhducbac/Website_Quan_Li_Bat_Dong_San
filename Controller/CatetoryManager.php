@@ -47,9 +47,9 @@
          }
          include('../../Model/CatetoryModel.php');
          $catetory = new CatetoryModel($CateID,$CateName,$CateAddress,$CateContent,$CateRent,$CateStatus,$GroupCateID,$email,$idgroup);
-         $query = "UPDATE Catetory SET  Password = '".$account->Password."', Name = '"
-         .$account->Name."', BirthDay = '".$account->Birthday."',Gender='".$account->Gender."',Address='".$account->Address.
-         "',PhoneNumber = '".$account->PhoneNumber."', Email = '".$account->Email."',IDGroup = '".$account->IDGroup."' WHERE  Username = '".$account->Username."'";
+         $query = "UPDATE Catetory SET  CateName = '".$catetory->CateName."', CateAddress = '"
+         .$catetory->CateAddress."', CateContent = '".$catetory->CateContent."',CateRent='".$catetory->CateRent."',CateStatus='".$catetory->CateStatus.
+         "',GroupCateID = '".$catetory->GroupCateID."' WHERE  CateID = '".$catetory->CateID."'";
 
          $result = mysqli_query($conn,$query); 
          if($result){
@@ -68,8 +68,8 @@
          //header("Refresh:0");
     }
     if(isset($_POST['deletecatetory'])){
-        $catename = addslashes($_POST['deletecatename']);
-        $query = "DELETE FROM Catetory WHERE Catename = '".$catename."'";
+        $cateid = addslashes($_POST['deletecateid']);
+        $query = "DELETE FROM Catetory WHERE CateID = '".$cateid."'";
         $result = mysqli_query($conn,$query);
         if($result){
             echo "Xóa thành công";

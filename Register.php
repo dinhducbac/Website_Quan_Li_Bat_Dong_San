@@ -24,7 +24,7 @@ Giới tính : <select id="gender" name="gender">
 SDT : <input type='text' name='phonenumber' /> 
 Email : <input type='text' name='email' /> 
 <input type='submit' class="button" name="register" value='Đăng ký' /> 
-<?php require 'RegisterController.php';?> 
+<?php require 'Controller/RegisterController.php';?> 
 <form> 
 </body> 
 </html>

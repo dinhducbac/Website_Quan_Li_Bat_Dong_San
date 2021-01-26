@@ -1,8 +1,8 @@
 <?php
     class CateImageModel{
-        private $CateImageID;
-        private $CateImageLink;
-        private $CateID;
+        public $CateImageID;
+        public $CateImageLink;
+        public $CateID;
         public function CateImageModel($CateImageID,$CateImageLink,$CateID){
             $this->CateImageID = $CateImageID;
             $this->CateImageLink = $CateImageLink;

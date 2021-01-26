@@ -1,5 +1,5 @@
 
-<?php require '../../Controller/GroupCateManager.php';?>
+<?php require '../../Controller/CateImageManager.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -155,6 +155,18 @@
                   <p>Manage CateImage</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="./News.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage New</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./NewImage.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage NewImage</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -170,14 +182,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>CateImage</h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
-            </ol>
-          </div>
+         
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -189,7 +196,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">DataTable of cateimage</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -270,7 +277,7 @@
                 </div>
                 <!-- /.col -->
               </section>
-                <section id="editgroupcate">
+                <section id="editcateimage">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header">
@@ -280,12 +287,12 @@
                       <div class="card-body">
                         <form   method='POST'> 
                         <div class="form-group">
-                            <label>GroupCate ID</label> 
+                            <label> CateImageID</label> 
                             <div class="input-group mb-3"> 
                                 <div class="input-group-prepend">  
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" readonly id="EditCateImageID" name="EditCateImageID" placeholder="EditCateImageID">
+                                <input type="text" class="form-control" readonly id="EditCateImageID" name="EditCateImageID" placeholder="CateImageID">
                             </div>
                         </div>
                         <div class="form-group">

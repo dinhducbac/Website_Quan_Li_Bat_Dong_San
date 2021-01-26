@@ -1,16 +1,16 @@
 
-<?php require '../../Controller/AccountManager.php';?>
+<?php require '../../Controller/NewManager.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | DataTables</title>
+  <title>ADMIN</title>
 
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="./Assets/CSS/source-san.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- DataTables -->
@@ -36,6 +36,8 @@
 <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -124,7 +126,7 @@
             <ul class="nav nav-treeview">
        
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="./Account.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Account</p>
                 </a>
@@ -142,7 +144,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./Contact.php" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Contact</p>
                 </a>
@@ -154,7 +156,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./News.php" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage New</p>
                 </a>
@@ -173,8 +175,6 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -182,7 +182,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Account</h1>
+            <h1>News</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -195,41 +195,33 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable of account</h3>
+                <h3 class="card-title">DataTable of news</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <a class="btn btn-app" href="#addaccount"><i class="fas fa-edit"></i>Add</a> 
-                <a class="btn btn-app" href="#editaccount"><i class="fas fa-edit"></i>Edit</a> 
-                <a class="btn btn-app" href="#deleteaccount"><i class="fas fa-edit"></i>Delete</a> 
-                <table id="example2" class="table table-bordered table-striped">
+                <a class="btn btn-app" href="#addnew"><i class="fas fa-edit"></i>Add</a> 
+                <a class="btn btn-app" href="#editnew"><i class="fas fa-edit"></i>Edit</a> 
+                <a class="btn btn-app" href="#deletenew"><i class="fas fa-edit"></i>Delete</a> 
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Name</th>
-                    <th>Birthday</th>
-                    <th>Gender</th>
-                    <th>Address</th>
-                    <th>PhoneNumber</th>
-                    <th>Email</th>
-                    <th>IDGroup</th>
+                    <th>NewID</th>
+                    <th>NewName</th>
+                    <th>NewContact</th>
+                    <th>NewDatePost</th>
+                    <th>NewCount</th>
                   </tr>
                   </thead>
                   <tbody>
-
+                  
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Name</th>
-                    <th>Birthday</th>
-                    <th>Gender</th>
-                    <th>Address</th>
-                    <th>PhoneNumber</th>
-                    <th>Email</th>
-                    <th>IDGroup</th>
+                    <th>NewID</th>
+                    <th>NewName</th>
+                    <th>NewContact</th>
+                    <th>NewDatePost</th>
+                    <th>NewCount</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -242,105 +234,54 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <section id="addaccount">
+            <section id="addnew">
                 <div class="col-12">
                   <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">Add Account</h3>
+                      <h3 class="card-title">Add New</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                     <form   method='POST'> 
                       <div class="form-group">
-                        <label>Username</label> 
+                        <label>NewName</label> 
                         <div class="input-group mb-3"> 
                             <div class="input-group-prepend">  
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                            <input type="text" class="form-control" id="NewName" name="NewName" placeholder="NewName">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label>Password</label> 
+                        <label>NewContent</label> 
                         <div class="input-group mb-3"> 
                             <div class="input-group-prepend">  
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="Password" class="form-control" id="password" name="password" placeholder="Password">
+                            <input type="text" class="form-control" id="NewContent" name="NewContent" placeholder="NewContent">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label>Name</label> 
+                        <label>NewDatePost</label> 
                         <div class="input-group mb-3"> 
                             <div class="input-group-prepend">  
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Birthday</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                              <input type="date" id="birthday" name="birthday" class="form-control"
+                              <input type="date" id="NewDatePost" name="NewDatePost" class="form-control"
                                 value = "<?php echo date("Y-m-d");?>",
                                 min="1900-01-01" max="<?php echo date("Y-m-d");?>"/>
                           </div>
                       </div>
                       <div class="form-group">
-                        <label>Gender</label> 
+                        <label>NewCount</label> 
                         <div class="input-group mb-3"> 
                             <div class="input-group-prepend">  
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <select id="gender" class="form-control" name="gender">
-                              <option value="M">Nam</option>
-                              <option value="F">Nữ</option>
-                            </select>
+                            <input type="text" class="form-control" id="NewCount" name="NewCount" placeholder="NewCount">
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label>Address</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="Address">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>PhoneNumber</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control"  id="phonenumber" name="phonenumber" placeholder="PhoneNumber">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Email</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>IDGroup</label> 
-                        <div class="input-group mb-3"> 
-                            <div class="input-group-prepend">  
-                              <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <select id="idgroup" class="form-control" name="idgroup">
-                              <option value="1">Admin</option>
-                              <option value="2">User</option>
-                            </select>
-                        </div>
-                      </div>
-                        <input type='submit' class="button" name="addaccount" value='ADD' /> 
+                        <input type='submit' class="button" name="addnew" value='ADD' /> 
                     </form> 
                     </div>
                     <!-- /.card-body -->
@@ -349,106 +290,64 @@
                 </div>
                 <!-- /.col -->
               </section>
-                <section id="editaccount">
+                <section id="editnew">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Edit Account</h3>
+                        <h3 class="card-title">Edit News</h3>
                       </div>
                       <!-- /.card-header -->
                       <div class="card-body">
-                      <form   method='POST'> 
+                        <form   method='POST'> 
                         <div class="form-group">
-                          <label>Username</label> 
-                          <div class="input-group mb-3"> 
-                              <div class="input-group-prepend">  
+                            <label>NewID</label> 
+                            <div class="input-group mb-3"> 
+                                <div class="input-group-prepend">  
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
-                              </div>
-                              <input type="text" readonly class="form-control" id="editusername" name="editusername" placeholder="Username" >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label>Password</label> 
-                          <div class="input-group mb-3"> 
-                              <div class="input-group-prepend">  
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                              </div>
-                              <input type="Password" class="form-control" id="editpassword" name="editpassword" placeholder="Password">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label>Name</label> 
-                          <div class="input-group mb-3"> 
-                              <div class="input-group-prepend">  
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                              </div>
-                              <input type="text" class="form-control" id="editname" name="editname" placeholder="Name">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label>Birthday</label> 
-                          <div class="input-group mb-3"> 
-                              <div class="input-group-prepend">  
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                              </div>
-                                <input type="date" id="editbirthday" name="editbirthday" class="form-control"
-                                  value = "<?php echo date("Y-m-d");?>",
-                                  min="1900-01-01" max="<?php echo date("Y-m-d");?>"/>
+                                </div>
+                                <input type="text" class="form-control" readonly id="EditNewID" name="EditNewID" placeholder="NewID">
                             </div>
                         </div>
                         <div class="form-group">
-                          <label>Gender</label> 
-                          <div class="input-group mb-3"> 
-                              <div class="input-group-prepend">  
+                            <label>NewName</label> 
+                            <div class="input-group mb-3"> 
+                                <div class="input-group-prepend">  
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
-                              </div>
-                              <select id="editgender" class="form-control" name="editgender">
-                                <option value="M">Nam</option>
-                                <option value="F">Nữ</option>
-                              </select>
-                          </div>
+                                </div>
+                                <input type="text" class="form-control" id="EditNewName" name="EditNewName" placeholder="NewName">
+                            </div>
                         </div>
                         <div class="form-group">
-                          <label>Address</label> 
-                          <div class="input-group mb-3"> 
-                              <div class="input-group-prepend">  
+                            <label>NewContent</label> 
+                            <div class="input-group mb-3"> 
+                                <div class="input-group-prepend">  
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
-                              </div>
-                              <input type="text" class="form-control" id="editaddress" name="editaddress" placeholder="Address">
-                          </div>
+                                </div>
+                                <input type="text" class="form-control" id="EditNewContent" name="EditNewContent" placeholder="NewContent">
+                            </div>
                         </div>
                         <div class="form-group">
-                          <label>PhoneNumber</label> 
-                          <div class="input-group mb-3"> 
-                              <div class="input-group-prepend">  
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                              </div>
-                              <input type="text" class="form-control"  id="editphonenumber" name="editphonenumber" placeholder="PhoneNumber">
+                        <label>NewDatePost</label> 
+                        <div class="input-group mb-3"> 
+                            <div class="input-group-prepend">  
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                              <input type="date" id="EditNewDatePost" name="EditNewDatePost" class="form-control"
+                                value = "<?php echo date("Y-m-d");?>",
+                                min="1900-01-01" max="<?php echo date("Y-m-d");?>"/>
                           </div>
-                        </div>
+                      </div>
                         <div class="form-group">
-                          <label>Email</label> 
-                          <div class="input-group mb-3"> 
-                              <div class="input-group-prepend">  
+                            <label>NewCount</label> 
+                            <div class="input-group mb-3"> 
+                                <div class="input-group-prepend">  
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
-                              </div>
-                              <input type="text" class="form-control" id="editemail" name="editemail" placeholder="Email">
-                          </div>
+                                </div>
+                                <input type="text" class="form-control" id="EditNewCount" name="EditNewCount" placeholder="NewCount">
+                            </div>
                         </div>
-                        <div class="form-group">
-                          <label>IDGroup</label> 
-                          <div class="input-group mb-3"> 
-                              <div class="input-group-prepend">  
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                              </div>
-                              <select id="editidgroup" class="form-control" name="editidgroup">
-                                <option value="1">Admin</option>
-                                <option value="2">User</option>
-                              </select>
-                          </div>
-                        </div>
-                          <input type='submit' class="button" name="editaccount" value='Edit' /> 
-                      </form> 
+                            <input type='submit' class="button" name="editnew" value='EDIT' /> 
+                        </form> 
                       </div>
                       <!-- /.card-body -->
                     </div>
@@ -456,26 +355,26 @@
                   </div>
                 <!-- /.col -->
               </section>
-              <section id="deleteaccount">
+              <section id="deletenew">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Delete Account</h3>
+                        <h3 class="card-title">Delete News</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                           <form   method='POST'> 
                             <div class="form-group">
-                              <label>Username</label> 
+                              <label>NewID</label> 
                               <div class="input-group mb-3"> 
                                   <div class="input-group-prepend">  
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                   </div>
-                                  <input type="text" class="form-control" id="deleteusername" name="deleteusername" placeholder="Username">
+                                  <input type="text" class="form-control" readonly id="DeleteNewID" name="DeleteNewID" placeholder="NewID">
                               </div>
                             </div>
                       
-                              <input type='submit' class="button" name="deleteaccount" value='delete' /> 
+                              <input type='submit' class="button" name="deletenew" value='DELETE' /> 
                           </form> 
                       </div>
                       <!-- /.card-body -->
@@ -509,8 +408,8 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery -->
-<script src="../../Assets/JS/AccountData.js"></script>
+<script src="../../Assets/JS/NewData.js"></script>
+
 </body>
 </html>
