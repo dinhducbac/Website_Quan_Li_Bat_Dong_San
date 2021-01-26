@@ -37,7 +37,7 @@
                         if (session_id() === '') session_start();
                         if(isset($_SESSION['Username'])){
                             echo '  <li class="nav-item">
-                                        <a class="nav-link" href="#">My Account</a>
+                                        <a class="nav-link" href="Profile.php">My Account</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="index.php" id="logout">Log Out</a>

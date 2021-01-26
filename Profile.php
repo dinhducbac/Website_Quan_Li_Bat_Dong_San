@@ -19,6 +19,7 @@
     <!-- endinject -->
   </head>
 
+       
   <body>
     <div class="container-scroller">
       <div class="main-panel">
@@ -106,14 +107,17 @@
           </div>
         </header>
         <div class="container">
-	<!-- <div class="row">
-		<div class="col-md-3 ">
-		     <div class="list-group ">
-              <a href="#" class="list-group-item list-group-item-action active">Profile</a>
-              <a href="#" class="list-group-item list-group-item-action">Edit Profile</a>
-
-            </div> 
-		</div> -->
+        <?php
+            include('./Session.php');
+            var_dump($_SESSION['Username']);
+            die();
+            $username = $_SESSION['Username'];
+           
+            include('./Connect.php');
+            $query = mysqli_query($conn,"SELECT * FROM account WHERE Username = '".$username."'");
+            echo "SELECT * FROM account WHERE Username = '".$username."'";
+            while($row = mysqli_fetch_array($query)){
+        ?>
 		<div class="col-md-12">
 		    <div class="card">
                     <div class="card-header p-2">
@@ -218,33 +222,32 @@
                                     <div class="form-group row">
                                         <label for="username" class="col-4 col-form-label">User Name</label> 
                                         <div class="col-8">
-                                        <input id="username" name="username" placeholder="Username" class="form-control here" readonly type="text">
+                                        <input id="username" name="username" placeholder="Username" class="form-control here" value="<?php echo $row['Username']?>" readonly type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="password" class="col-4 col-form-label">Password*</label> 
                                         <div class="col-8">
-                                        <input id="password" name="password" placeholder="Password" required="required" class="form-control here" type="password">
+                                        <input id="password" name="password" placeholder="Password" value="<?php echo $row['Password']?>" readonly required="required" class="form-control here" type="password">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="name" class="col-4 col-form-label">Last Name*</label> 
+                                        <label for="name" class="col-4 col-form-label">Name*</label> 
                                         <div class="col-8">
-                                        <input id="name" name="name" placeholder="Name" required="required" class="form-control here" type="text">
+                                        <input id="name" name="name" placeholder="Name" required="required" value="<?php echo $row['Name']?>" readonly class="form-control here" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="birthday" class="col-4 col-form-label">BirthDay*</label> 
                                         <div class="col-8">
                                             <input type="date" id="birthday" name="birthday" class="form-control"
-                                                value = "<?php echo date("Y-m-d");?>",
-                                                min="1900-01-01" max="<?php echo date("Y-m-d");?>"/>
+                                            value="<?php echo $row['BirthDay']?>" readonly/>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="gender" class="col-4 col-form-label">Gender</label> 
                                         <div class="col-8">
-                                            <select id="gender" name="gender" class="custom-select">
+                                            <select id="gender" name="gender" class="custom-select" value="<?php echo $row['Gender']?>" readonly>
                                                 <option value="M">Nam</option>
                                                 <option value="F">Nữ</option>
                                             </select>
@@ -253,35 +256,30 @@
                                     <div class="form-group row">
                                         <label for="email" class="col-4 col-form-label">Email*</label> 
                                         <div class="col-8">
-                                        <input id="email" name="email" placeholder="Email" class="form-control here" required="required" type="text">
+                                        <input id="email" name="email" placeholder="Email" class="form-control here" value="<?php echo $row['Email']?>" readonly required="required" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="address" class="col-4 col-form-label">Address</label> 
                                         <div class="col-8">
-                                        <input id="address" name="address" placeholder="Address" class="form-control here" type="text">
+                                        <input id="address" name="address" placeholder="Address" value="<?php echo $row['Address']?>" readonly class="form-control here" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="phonenumber" class="col-4 col-form-label">PhoneNumber</label> 
                                         <div class="col-8">
-                                        <input id="phonenumber" name="phonenumber" placeholder="PhoneNumber" class="form-control here" type="text">
+                                        <input id="phonenumber" name="phonenumber" placeholder="PhoneNumber" value="<?php echo $row['PhoneNumber']?>" readonly class="form-control here" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="idgroup" class="col-4 col-form-label">IDGroup</label> 
                                             <div class="col-8">
-                                                <select id="idgroup" name="idgroup" class="custom-select">
+                                                <select id="idgroup" name="idgroup" class="custom-select" value="<?php echo $row['IDGroup']?>" readonly>
                                                     <option value="1">Admin</option>
                                                     <option value="2">User</option>
                                                 </select>
                                             </div>
                                     </div> 
-                                    <div class="form-group row">
-                                        <div class="offset-4 col-8">
-                                        <button name="editprofile" type="submit" class="btn btn-primary">Update My Profile</button>
-                                        </div>
-                                    </div>
                                     </form>
                                 </div>
                             </div>
@@ -290,7 +288,10 @@
 		            
 		        </div>
 		    </div>
-		</div>
+        </div>
+        <?php
+            }
+        ?>
 	</div>
 </div>                
         <!-- <div class="content-wrapper">
