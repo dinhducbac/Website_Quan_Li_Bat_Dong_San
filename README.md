@@ -33,6 +33,11 @@ Trước tiên, ta vào trang web https://www.apachefriends.org/download.html ch
 </p>
 
 Sau khi tải xuống hoàn tất, ta chạy tệp vừa tải lên, sau đó nhấn nút **Next >** cho đến khi cài đặt hoàn tất.
+### Cài đặt cơ sở dữ liệu
+Ta chọn vào nút **Admin** của dịch vụ **MySQL** để vào được trang **phpMyAdmin**, sau đó nhấn vào tab **SQL** bên phải tab **Databases**.
+<p align="center">
+  <img alt="PHP MyAdmin" src="Assets/Images/phpmyadmin.jpg">
+</p>
 Lúc này, **XAMPP Control Panel** sẽ được bật lên. Ta sẽ chọn **Start** vào 2 dịch vụ quan trọng là **Apache** và **MySQL**.
 <p align="center">
   <img alt="XAMPP Control Panel" src="Assets/Images/xampp-control-panel.jpg">
