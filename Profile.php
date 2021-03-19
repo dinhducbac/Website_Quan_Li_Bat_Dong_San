@@ -109,11 +109,10 @@
         <div class="container">
         <?php
             include('./Session.php');
-            var_dump($_SESSION['Username']);
-            die();
-            $username = $_SESSION['Username'];
-           
             include('./Connect.php');
+            // var_dump($_SESSION['Username']);
+            // die();
+            $username = $_SESSION['profile'];
             $query = mysqli_query($conn,"SELECT * FROM account WHERE Username = '".$username."'");
             echo "SELECT * FROM account WHERE Username = '".$username."'";
             while($row = mysqli_fetch_array($query)){
@@ -141,25 +140,25 @@
                                     <div class="form-group row">
                                         <label for="username" class="col-4 col-form-label">User Name</label> 
                                         <div class="col-8">
-                                        <input id="username" name="username" placeholder="Username" class="form-control here" readonly type="text">
+                                        <input id="username" name="username" placeholder="Username" class="form-control here" value="<?php echo $row['Username']?>" readonly type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="password" class="col-4 col-form-label">Password*</label> 
                                         <div class="col-8">
-                                        <input id="password" name="password" placeholder="Password" required="required" class="form-control here" type="password">
+                                        <input id="password" name="password" placeholder="Password" value="<?php echo $row['Password']?>" required="required" class="form-control here" type="password">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="name" class="col-4 col-form-label">Last Name*</label> 
                                         <div class="col-8">
-                                        <input id="name" name="name" placeholder="Name" required="required" class="form-control here" type="text">
+                                        <input id="name" name="name" placeholder="Name" value="<?php echo $row['Name']?>" required="required" class="form-control here" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="birthday" class="col-4 col-form-label">BirthDay*</label> 
                                         <div class="col-8">
-                                            <input type="date" id="birthday" name="birthday" class="form-control"
+                                            <input type="date" id="birthday" name="birthday" value="<?php echo $row['BirthDay']?>" class="form-control"
                                                 value = "<?php echo date("Y-m-d");?>",
                                                 min="1900-01-01" max="<?php echo date("Y-m-d");?>"/>
                                         </div>
@@ -167,7 +166,7 @@
                                     <div class="form-group row">
                                         <label for="gender" class="col-4 col-form-label">Gender</label> 
                                         <div class="col-8">
-                                            <select id="gender" name="gender" class="custom-select">
+                                            <select id="gender" name="gender" value="<?php echo $row['Gender']?>" class="custom-select">
                                                 <option value="M">Nam</option>
                                                 <option value="F">Nữ</option>
                                             </select>
@@ -176,25 +175,25 @@
                                     <div class="form-group row">
                                         <label for="email" class="col-4 col-form-label">Email*</label> 
                                         <div class="col-8">
-                                        <input id="email" name="email" placeholder="Email" class="form-control here" required="required" type="text">
+                                        <input id="email" name="email" placeholder="Email" value="<?php echo $row['Email']?>" class="form-control here" required="required" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="address" class="col-4 col-form-label">Address</label> 
                                         <div class="col-8">
-                                        <input id="address" name="address" placeholder="Address" class="form-control here" type="text">
+                                        <input id="address" name="address" placeholder="Address" value="<?php echo $row['Address']?>" class="form-control here" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="phonenumber" class="col-4 col-form-label">PhoneNumber</label> 
                                         <div class="col-8">
-                                        <input id="phonenumber" name="phonenumber" placeholder="PhoneNumber" class="form-control here" type="text">
+                                        <input id="phonenumber" name="phonenumber" placeholder="PhoneNumber" value="<?php echo $row['PhoneNumber']?>" class="form-control here" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="idgroup" class="col-4 col-form-label">IDGroup</label> 
                                             <div class="col-8">
-                                                <select id="idgroup" name="idgroup" class="custom-select">
+                                                <select id="idgroup" name="idgroup" value="<?php echo $row['IDGroup']?>" class="custom-select">
                                                     <option value="1">Admin</option>
                                                     <option value="2">User</option>
                                                 </select>

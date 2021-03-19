@@ -36,8 +36,9 @@
                     <?php
                         if (session_id() === '') session_start();
                         if(isset($_SESSION['Username'])){
+                            $_SESSION['profile'] = $_SESSION['Username'];
                             echo '  <li class="nav-item">
-                                        <a class="nav-link" href="Profile.php">My Account</a>
+                                        <a class="nav-link" href="Profile.php" id="profile">My Account</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="index.php" id="logout">Log Out</a>
@@ -181,6 +182,18 @@
                     unset($_SESSION['Username']);
                 ?>
             });
+       
     </script>
+    <script>
+       $('#profile').click(function(){
+          var session = '<%= Session["Username"] %>';
+          if(session==null){
+           alert('NULL');
+          }
+          else{
+            alert('EXIST');
+          }
+        });
+      </script>
   </body>
 </html>
